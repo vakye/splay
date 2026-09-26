@@ -163,7 +163,6 @@ DoItAgain:
 
         for (int Loops = Microseconds / PeriodTime; Loops > 0; Loops--)
         {
-            printf("Sending (remaining %i)...\n", Loops);
             Error = snd_pcm_writei(PCM, At, Frames);
             if (Error < 0)
             {
@@ -198,7 +197,6 @@ DoItAgain:
         {
             intptr_t LeftoverSamples = Audio.SampleCount % Frames;
 
-            printf("Sending (remaining 0)...\n");
             Error = snd_pcm_writei(PCM, At, LeftoverSamples);
             if (Error < 0)
             {
